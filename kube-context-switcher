@@ -2,6 +2,7 @@
 
 import subprocess
 import sys
+from typing import List
 
 
 def eprint(*args, **kwargs):
@@ -11,7 +12,7 @@ def eprint(*args, **kwargs):
     print(*args, file=sys.stderr, **kwargs)
 
 
-def get_contexts() -> list[str]:
+def get_contexts() -> List[str]:
     """
     Get a list of the available kubernetes contexts.
     """
@@ -45,7 +46,7 @@ if __name__ == "__main__":
     except ValueError:
         eprint(f"The entered input is invalid")
         exit(1)
-    if selected_index < 0 or selected_index > len(contexts)-1:
+    if selected_index < 0 or selected_index > len(contexts) - 1:
         eprint(f"The selected index {selected_index} is invalid")
         exit(1)
     selected_context = contexts[selected_index]
